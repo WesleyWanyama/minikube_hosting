@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: react-frontend:v15 
+        image: react-frontend:v14 
         ports:
         - containerPort: 80
