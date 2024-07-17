@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: spring-mysql
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: spring-mysql
@@ -38,3 +38,10 @@ spec:
             secretKeyRef:
               name: spring-secret
               key: SPRING_DATASOURCE_PASSWORD
+          resources:
+            requests:
+              cpu: "200m"       
+              memory: "512Mi"    
+            limits:
+              cpu: "500m"        
+              memory: "1024Mi"
