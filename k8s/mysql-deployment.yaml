@@ -27,4 +27,11 @@ spec:
           name: mysql-data
       volumes:
       - name: mysql-data
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "512Mi"          
+          limits:
+            cpu: "500m"
+            memory: "1024Mi"
        

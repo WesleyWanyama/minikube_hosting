@@ -14,6 +14,13 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: react-frontend:v15 
+        image: react-frontend:v17 
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "512Mi"          
+          limits:
+            cpu: "500m"
+            memory: "1024Mi"
