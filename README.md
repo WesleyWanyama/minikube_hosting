@@ -27,8 +27,33 @@ kubectl apply -f mysql-deployment.yaml
 ```
 
 ## Install Argo CD
-1. 
+1. **Create the Argo CD namespace**
+```bash
+kubectl create namespace argocd
+```
 
+2. **Install Argo CD using the official manifests**
+```bash
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+3. **Wait for Argo CD pods to be up and running**
+```bash
+kubectl get pods -n argocd
+```
+
+## Expose the Argo CD Server
+1. **Port-forward Argo CD UI**
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+2. **Retrieve the initial admin password**
+```bash
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+```
+
+3. **Access the Argo CD UI on the browser**
 
 
 
